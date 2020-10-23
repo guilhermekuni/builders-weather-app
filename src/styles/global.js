@@ -9,16 +9,29 @@ export default createGlobalStyle`
   }
 
   body {
-    /* background: #f0f2f5; */
-    background: #f1faee;
+    background: #edf2f4;
+    padding: 0 20px;
     -webkit-font-smoothing: antialiased
   }
 
   body, input, button {
-    font: 16px "Poppins", sans-serif;
+    font: 16px "Roboto", sans-serif;
   }
 
   button {
     cursor: pointer;
+  }
+
+  body {
+    // font sizes
+    --hugeSize: 80px;
+    --bigSize: 48px;
+    --subtitleSize: 32px;
+    --textSize: 24px;
+
+    // colors
+    --background: #edf2f4;
+    --white: #fff;
+    --titleColor: #2b2d42;
   }
 `;
