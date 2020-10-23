@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
-  flex: 1;
+  flex: 2;
   margin-right: 16px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   border-radius: var(--borderRadius);

@@ -31,23 +31,23 @@ const MainWeatherCard = () => {
       </S.MainSection>
       <S.InfoSection>
         <S.InfoItem>
-          <strong>Máx.</strong>
+          <strong>máx.</strong>
           <p>
             29<code>&deg;</code>C
           </p>
         </S.InfoItem>
         <S.InfoItem>
-          <strong>Mín.</strong>
+          <strong>mín.</strong>
           <p>
             19<code>&deg;</code>C
           </p>
         </S.InfoItem>
         <S.InfoItem>
-          <strong>Vento</strong>
+          <strong>vento</strong>
           <p>12 km/m</p>
         </S.InfoItem>
         <S.InfoItem>
-          <strong>Humidade</strong>
+          <strong>humidade</strong>
           <p>17%</p>
         </S.InfoItem>
       </S.InfoSection>
