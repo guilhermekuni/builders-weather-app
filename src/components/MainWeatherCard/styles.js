@@ -4,8 +4,7 @@ export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   flex: 1;
-  margin: 24px 32px 0 0;
-  height: 620px;
+  margin-right: 16px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   border-radius: var(--borderRadius);
 `;
@@ -18,7 +17,7 @@ export const MainSection = styled.section`
   border-top-left-radius: var(--borderRadius);
   border-top-right-radius: var(--borderRadius);
   background: linear-gradient(
-    to bottom right,
+    to top left,
     var(--cardLinearColor1),
     var(--cardLinearColor2),
     var(--cardLinearColor3)
@@ -28,12 +27,12 @@ export const MainSection = styled.section`
 export const TitleSection = styled.section`
   h1 {
     font-size: var(--bigSize);
-    color: var(--textColor);
+    color: var(--lightTextColor);
   }
 
   h2 {
-    font-size: var(--subtitleSize);
-    color: var(--textColor);
+    font-size: var(--textSize);
+    color: var(--lightTextColor);
   }
 `;
 
@@ -54,23 +53,23 @@ export const Temperature = styled.div`
   p {
     font-size: var(--hugeSize);
     font-weight: bold;
-    color: var(--textColor);
+    color: var(--lightTextColor);
 
     span {
       font-size: var(--bigSize);
-      color: var(--textColor);
+      color: var(--lightTextColor);
     }
   }
 `;
 
 export const WeatherDescription = styled.p`
   font-size: var(--bigSize);
-  color: var(--textColor);
+  color: var(--lightTextColor);
 `;
 
 export const TemperatureFeelsLike = styled.p`
-  font-size: var(--textSize);
-  color: var(--textColor);
+  font-size: var(--smallSize);
+  color: var(--lightTextColor);
 `;
 
 export const InfoSection = styled.section`
@@ -98,13 +97,13 @@ export const InfoItem = styled.div`
 
   strong {
     color: var(--lightTextColor);
-    font-size: var(--subtitleSize);
+    font-size: var(--textSize);
     font-weight: bold;
   }
 
   p {
     color: var(--lightTextColor);
-    font-size: var(--subtitleSize);
+    font-size: var(--textSize);
     margin-top: 12px;
   }
 `;

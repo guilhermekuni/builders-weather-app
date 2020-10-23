@@ -2,6 +2,7 @@ import React from 'react';
 
 import Header from '../../components/Header';
 import MainWeatherCard from '../../components/MainWeatherCard';
+import SmallWeatherCard from '../../components/SmallWeatherCard';
 
 import * as S from './styles';
 
@@ -11,7 +12,12 @@ const Home = () => {
       <Header />
       <S.Wrapper>
         <MainWeatherCard />
-        <S.Test />
+        <S.NextDaysSection>
+          <SmallWeatherCard />
+          <SmallWeatherCard />
+          <SmallWeatherCard />
+          <SmallWeatherCard />
+        </S.NextDaysSection>
       </S.Wrapper>
     </S.Container>
   );

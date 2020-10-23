@@ -22,11 +22,11 @@ export default createGlobalStyle`
   }
 
   body {
-    --borderRadius: 32px;
+    --borderRadius: 24px;
     --hugeSize: 120px;
     --bigSize: 40px;
-    --subtitleSize: 24px;
-    --textSize: 20px;
+    --textSize: 24px;
+    --smallSize: 20px;
 
     --background: #edf2f4;
     --darkBackground: #292E3D;
@@ -34,9 +34,10 @@ export default createGlobalStyle`
 
     --textColor: #1a1d26;
     --lightTextColor: #edf2f4;
+    --hightLightText: #011F51;
     --descriptionColor: #8d99ae;
-    --cardLinearColor1: #86B4FE;
-    --cardLinearColor2: #C2D9FE;
-    --cardLinearColor3: #D6E4FF;
+    --cardLinearColor1: #023FA1;
+    --cardLinearColor2: #2275FC;
+    --cardLinearColor3: #4A8EFC;
   }
 `;
