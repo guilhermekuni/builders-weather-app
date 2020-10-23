@@ -1,5 +1,7 @@
 import React from 'react';
 
+import IconWeather from '../IconWeather';
+
 import * as S from './styles';
 
 const MainWeatherCard = () => {
@@ -12,10 +14,7 @@ const MainWeatherCard = () => {
         </S.TitleSection>
         <S.WeatherSection>
           <S.Temperature>
-            <img
-              src="http://openweathermap.org/img/wn/01d@4x.png"
-              alt="weather_icon"
-            />
+            <IconWeather iconCode="01d" size={4} />
             <p>
               22
               <span>
