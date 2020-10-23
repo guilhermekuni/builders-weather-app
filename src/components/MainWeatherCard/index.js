@@ -29,7 +29,28 @@ const MainWeatherCard = () => {
           </S.TemperatureFeelsLike>
         </S.WeatherSection>
       </S.MainSection>
-      <S.InfoSection />
+      <S.InfoSection>
+        <S.InfoItem>
+          <strong>Máx.</strong>
+          <p>
+            29<code>&deg;</code>C
+          </p>
+        </S.InfoItem>
+        <S.InfoItem>
+          <strong>Mín.</strong>
+          <p>
+            19<code>&deg;</code>C
+          </p>
+        </S.InfoItem>
+        <S.InfoItem>
+          <strong>Vento</strong>
+          <p>12 km/m</p>
+        </S.InfoItem>
+        <S.InfoItem>
+          <strong>Humidade</strong>
+          <p>17%</p>
+        </S.InfoItem>
+      </S.InfoSection>
     </S.Wrapper>
   );
 };

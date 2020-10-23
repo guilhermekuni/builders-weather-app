@@ -5,7 +5,7 @@ export const Wrapper = styled.div`
   flex-direction: column;
   flex: 1;
   margin: 24px 32px 0 0;
-  height: 650px;
+  height: 620px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   border-radius: var(--borderRadius);
 `;
@@ -75,13 +75,10 @@ export const TemperatureFeelsLike = styled.p`
 
 export const InfoSection = styled.section`
   display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  height: 200px;
-  margin-top: -40px;
+  flex-direction: row;
+  height: 160px;
+  padding: 20px;
   background: var(--darkBackground);
-  border-top-left-radius: 28px;
-  border-top-right-radius: 28px;
   border-bottom-left-radius: var(--borderRadius);
   border-bottom-right-radius: var(--borderRadius);
 
@@ -93,18 +90,21 @@ export const InfoSection = styled.section`
   }
 `;
 
-export const InfoLabel = styled.p`
-  font-size: var(--subtitleSize);
-  color: var(--textColor);
-  font-weight: bold;
-  margin-right: 16px;
-  flex: 1;
+export const InfoItem = styled.div`
   display: flex;
-  justify-content: flex-end;
-`;
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
 
-export const Info = styled.p`
-  flex: 3;
-  font-size: var(--subtitleSize);
-  color: var(--descriptionColor);
+  strong {
+    color: var(--lightTextColor);
+    font-size: var(--subtitleSize);
+    font-weight: bold;
+  }
+
+  p {
+    color: var(--lightTextColor);
+    font-size: var(--subtitleSize);
+    margin-top: 12px;
+  }
 `;

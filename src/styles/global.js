@@ -22,7 +22,7 @@ export default createGlobalStyle`
   }
 
   body {
-    --borderRadius: 16px;
+    --borderRadius: 32px;
     --hugeSize: 120px;
     --bigSize: 40px;
     --subtitleSize: 24px;
