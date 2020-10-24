@@ -1,9 +1,15 @@
-import React, { useState, useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import React, { useState, useEffect, useCallback } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 
-import { setUserCoordinates } from '../../store/modules/location/actions';
+import {
+  setUserCoordinates,
+  setUserCity,
+} from '../../store/modules/location/actions';
 
-import { getWeatherByCoords } from '../../services/api';
+import {
+  getWeatherByCoords,
+  getNextDaysWeatherForecast,
+} from '../../services/api';
 
 import Header from '../../components/Header';
 import MainWeatherCard from '../../components/MainWeatherCard';
@@ -12,32 +18,48 @@ import SmallWeatherCard from '../../components/SmallWeatherCard';
 import * as S from './styles';
 
 const Home = () => {
-  const [weatherState, setWeatherState] = useState(null);
-
   const dispatch = useDispatch();
+  const userLatitude = useSelector(state => state.location.latitude);
+  const userLongitude = useSelector(state => state.location.longitude);
 
-  const getCurrentWeather = async ({ latitude, longitude }) => {
-    const { data } = await getWeatherByCoords({
-      lat: latitude,
-      lon: longitude,
-    });
+  const [weatherState, setWeatherState] = useState(null);
+  const [nextDaysForecast, setNextDaysForecast] = useState([]);
 
-    const { weather, main, dt } = data;
-    const { icon, description } = weather[0];
+  const getCurrentWeather = useCallback(
+    async ({ latitude, longitude }) => {
+      const { data } = await getWeatherByCoords({
+        lat: latitude,
+        lon: longitude,
+      });
 
-    const weatherInfo = {
-      description,
-      icon,
-      unixDate: dt,
-      feelsLike: main.feels_like,
-      humidity: main.humidity,
-      temp: main.temp,
-      tempMax: main.temp_max,
-      tempMin: main.temp_min,
-    };
+      const { weather, main, dt, name } = data;
+      const { icon, description } = weather[0];
 
-    setWeatherState(weatherInfo);
-  };
+      const weatherInfo = {
+        description,
+        icon,
+        city: name,
+        unixDate: dt,
+        feelsLike: main.feels_like,
+        humidity: main.humidity,
+        temp: main.temp,
+        tempMax: main.temp_max,
+        tempMin: main.temp_min,
+      };
+
+      setWeatherState(weatherInfo);
+      dispatch(setUserCity({ city: name }));
+    },
+    [dispatch],
+  );
+
+  const getNextDaysForecast = useCallback(async (lat, lon) => {
+    const { data } = await getNextDaysWeatherForecast({ lat, lon });
+    const [, ...rest] = data.daily;
+    const nextDays = rest.filter((day, index) => index <= 4);
+
+    setNextDaysForecast(nextDays);
+  }, []);
 
   useEffect(() => {
     const getUserCoordinates = position => {
@@ -51,9 +73,13 @@ const Home = () => {
       getUserCoordinates,
       console.error,
     );
-  }, [dispatch]);
+  }, [dispatch, getCurrentWeather]);
 
-  useEffect(() => {}, []);
+  useEffect(() => {
+    if (userLatitude && userLongitude) {
+      getNextDaysForecast(userLatitude, userLongitude);
+    }
+  }, [userLatitude, userLongitude, getNextDaysForecast]);
 
   return (
     <S.Container>
@@ -61,10 +87,15 @@ const Home = () => {
       <S.Wrapper>
         <MainWeatherCard {...weatherState} />
         <S.NextDaysSection>
-          <SmallWeatherCard />
-          <SmallWeatherCard />
-          <SmallWeatherCard />
-          <SmallWeatherCard />
+          {nextDaysForecast.map(({ dt, weather, temp }) => (
+            <SmallWeatherCard
+              key={dt}
+              icon={weather[0].icon}
+              unixDate={dt}
+              tempMax={temp.max}
+              tempMin={temp.min}
+            />
+          ))}
         </S.NextDaysSection>
       </S.Wrapper>
     </S.Container>

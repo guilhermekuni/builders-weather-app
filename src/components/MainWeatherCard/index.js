@@ -18,6 +18,7 @@ import * as S from './styles';
 const MainWeatherCard = ({
   description,
   icon,
+  city,
   unixDate,
   feelsLike,
   humidity,
@@ -39,7 +40,9 @@ const MainWeatherCard = ({
       <S.MainSection>
         <S.TitleSection>
           <h1>{formattedDate}</h1>
-          <h2>Araraquara, {weekDay}</h2>
+          <h2>
+            {city}, {weekDay}
+          </h2>
         </S.TitleSection>
 
         <S.WeatherSection>
@@ -79,6 +82,7 @@ const MainWeatherCard = ({
 MainWeatherCard.propTypes = {
   description: PropTypes.string,
   icon: PropTypes.string,
+  city: PropTypes.string,
   unixDate: PropTypes.number,
   feelsLike: PropTypes.number,
   humidity: PropTypes.number,
@@ -90,6 +94,7 @@ MainWeatherCard.propTypes = {
 MainWeatherCard.defaultProps = {
   description: null,
   icon: null,
+  city: null,
   unixDate: null,
   feelsLike: null,
   humidity: null,

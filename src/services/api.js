@@ -17,3 +17,13 @@ const getQueryParams = params => {
 
 export const getWeatherByCoords = ({ lat, lon }) =>
   api.get(`weather`, { params: getQueryParams({ lat, lon }) });
+
+export const getNextDaysWeatherForecast = ({ lat, lon }) =>
+  api.get(`onecall`, {
+    params: getQueryParams({
+      lat,
+      lon,
+      cnt: 5,
+      exclude: 'current,minutely,hourly,alerts',
+    }),
+  });

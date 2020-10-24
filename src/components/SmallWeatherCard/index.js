@@ -1,29 +1,52 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
+import { formatTemperature } from '../../utils/temperatureHelper';
+import {
+  converUnixToWeekDay,
+  convertUnixToShortDate,
+} from '../../utils/dateHelper';
 
 import IconWeather from '../IconWeather';
 
 import * as S from './styles';
 
-const SmallWeatherCard = () => {
+const SmallWeatherCard = ({ icon, unixDate, tempMax, tempMin }) => {
+  const dateFormatted = convertUnixToShortDate(unixDate);
+  const weekDay = converUnixToWeekDay(unixDate);
+
+  const tempMaxFormatted = tempMax && formatTemperature(tempMax, 'C');
+  const tempMinFormatted = tempMin && formatTemperature(tempMin, 'C');
+
   return (
     <S.Wrapper>
       <S.Day>
-        <p>sábado,</p>
-        <p>24/10</p>
+        <p>{weekDay},</p>
+        <p>{dateFormatted}</p>
       </S.Day>
       <S.Temperature>
-        <strong>
-          28<code>&deg;</code>C /
-        </strong>
-        <p>
-          22<code>&deg;</code>C
-        </p>
+        <strong>{tempMaxFormatted} /</strong>
+        <p>{tempMinFormatted}</p>
       </S.Temperature>
       <S.WeatherCondition>
-        <IconWeather iconCode="10d" size={2} />
+        <IconWeather iconCode={icon} size={2} />
       </S.WeatherCondition>
     </S.Wrapper>
   );
+};
+
+SmallWeatherCard.propTypes = {
+  icon: PropTypes.string,
+  unixDate: PropTypes.number,
+  tempMax: PropTypes.number,
+  tempMin: PropTypes.number,
+};
+
+SmallWeatherCard.defaultProps = {
+  icon: null,
+  unixDate: null,
+  tempMax: null,
+  tempMin: null,
 };
 
 export default SmallWeatherCard;
