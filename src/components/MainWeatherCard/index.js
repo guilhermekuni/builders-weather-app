@@ -1,7 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { convertUnixToLongDate, converUnixToWeekDay } from '../../utils/helper';
+import {
+  formatBigTemperature,
+  formatTemperature,
+} from '../../utils/temperatureHelper';
+
+import {
+  convertUnixToLongDate,
+  converUnixToWeekDay,
+} from '../../utils/dateHelper';
 
 import IconWeather from '../IconWeather';
 
@@ -20,6 +28,12 @@ const MainWeatherCard = ({
   const formattedDate = unixDate && convertUnixToLongDate(unixDate);
   const weekDay = unixDate && converUnixToWeekDay(unixDate);
 
+  const temperatureFormatted = temp && formatBigTemperature(temp);
+  const tempMaxFormatted = tempMax && formatTemperature(tempMax, 'C');
+  const tempMinFormatted = tempMin && formatTemperature(tempMin, 'C');
+  const tempFeelsLikeFormmated =
+    feelsLike && `sensação de ${formatTemperature(feelsLike, 'C')}`;
+
   return (
     <S.Wrapper>
       <S.MainSection>
@@ -27,37 +41,27 @@ const MainWeatherCard = ({
           <h1>{formattedDate}</h1>
           <h2>Araraquara, {weekDay}</h2>
         </S.TitleSection>
+
         <S.WeatherSection>
           <S.Temperature>
             <IconWeather iconCode={icon} size={4} />
-            <p>
-              {temp}
-              <span>
-                <code>&deg;</code>C
-              </span>
-            </p>
+            <p>{temperatureFormatted}</p>
           </S.Temperature>
           <S.WeatherDescription>{description}</S.WeatherDescription>
           <S.TemperatureFeelsLike>
-            sensação de {feelsLike}
-            <code>&deg;</code>C
+            {tempFeelsLikeFormmated}
           </S.TemperatureFeelsLike>
         </S.WeatherSection>
       </S.MainSection>
+
       <S.InfoSection>
         <S.InfoItem>
           <strong>máx.</strong>
-          <p>
-            {tempMax}
-            <code>&deg;</code>C
-          </p>
+          <p>{tempMaxFormatted}</p>
         </S.InfoItem>
         <S.InfoItem>
           <strong>mín.</strong>
-          <p>
-            {tempMin}
-            <code>&deg;</code>C
-          </p>
+          <p>{tempMinFormatted}</p>
         </S.InfoItem>
         <S.InfoItem>
           <strong>vento</strong>
