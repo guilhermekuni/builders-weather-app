@@ -74,12 +74,12 @@ const MainWeatherCard = ({
 MainWeatherCard.propTypes = {
   description: PropTypes.string,
   icon: PropTypes.string,
-  unixDate: PropTypes.string,
-  feelsLike: PropTypes.string,
-  humidity: PropTypes.string,
-  temp: PropTypes.string,
-  tempMax: PropTypes.string,
-  tempMin: PropTypes.string,
+  unixDate: PropTypes.number,
+  feelsLike: PropTypes.number,
+  humidity: PropTypes.number,
+  temp: PropTypes.number,
+  tempMax: PropTypes.number,
+  tempMin: PropTypes.number,
 };
 
 MainWeatherCard.defaultProps = {
