@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { convertUnixToLongDate } from '../../utils/helper';
+import { convertUnixToLongDate, converUnixToWeekDay } from '../../utils/helper';
 
 import IconWeather from '../IconWeather';
 
@@ -18,13 +18,14 @@ const MainWeatherCard = ({
   tempMin,
 }) => {
   const formattedDate = unixDate && convertUnixToLongDate(unixDate);
+  const weekDay = unixDate && converUnixToWeekDay(unixDate);
 
   return (
     <S.Wrapper>
       <S.MainSection>
         <S.TitleSection>
           <h1>{formattedDate}</h1>
-          <h2>Araraquara, sexta-feira</h2>
+          <h2>Araraquara, {weekDay}</h2>
         </S.TitleSection>
         <S.WeatherSection>
           <S.Temperature>
