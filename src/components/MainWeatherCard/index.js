@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import { useSelector } from 'react-redux';
+
 import {
   formatBigTemperature,
   formatTemperature,
@@ -13,6 +15,7 @@ import {
 
 import IconWeather from '../IconWeather';
 
+import MainWeatherCardSekeleton from './skeleton';
 import * as S from './styles';
 
 const MainWeatherCard = ({
@@ -25,7 +28,10 @@ const MainWeatherCard = ({
   temp,
   tempMax,
   tempMin,
+  hasInfo,
 }) => {
+  const isLoading = useSelector(state => state.loading);
+
   const formattedDate = unixDate && convertUnixToLongDate(unixDate);
   const weekDay = unixDate && converUnixToWeekDay(unixDate);
 
@@ -36,46 +42,50 @@ const MainWeatherCard = ({
     feelsLike && `sensação de ${formatTemperature(feelsLike, 'C')}`;
 
   return (
-    <S.Wrapper>
-      <S.MainSection>
-        <S.TitleSection>
-          <h1>{formattedDate}</h1>
-          <h2>
-            {city}, {weekDay}
-          </h2>
-        </S.TitleSection>
+    <>
+      {(isLoading || !hasInfo) ? <MainWeatherCardSekeleton /> : (
+        <S.Wrapper>
+          <S.MainSection>
+            <S.TitleSection>
+              <h1>{formattedDate}</h1>
+              <h2>
+                {city}, {weekDay}
+              </h2>
+            </S.TitleSection>
 
-        <S.WeatherSection>
-          <S.Temperature>
-            <IconWeather iconCode={icon} size={4} />
-            <p>{temperatureFormatted}</p>
-          </S.Temperature>
-          <S.WeatherDescription>{description}</S.WeatherDescription>
-          <S.TemperatureFeelsLike>
-            {tempFeelsLikeFormmated}
-          </S.TemperatureFeelsLike>
-        </S.WeatherSection>
-      </S.MainSection>
+            <S.WeatherSection>
+              <S.Temperature>
+                <IconWeather iconCode={icon} size={4} />
+                <p>{temperatureFormatted}</p>
+              </S.Temperature>
+              <S.WeatherDescription>{description}</S.WeatherDescription>
+              <S.TemperatureFeelsLike>
+                {tempFeelsLikeFormmated}
+              </S.TemperatureFeelsLike>
+            </S.WeatherSection>
+          </S.MainSection>
 
-      <S.InfoSection>
-        <S.InfoItem>
-          <strong>máx.</strong>
-          <p>{tempMaxFormatted}</p>
-        </S.InfoItem>
-        <S.InfoItem>
-          <strong>mín.</strong>
-          <p>{tempMinFormatted}</p>
-        </S.InfoItem>
-        <S.InfoItem>
-          <strong>vento</strong>
-          <p>12 km/h</p>
-        </S.InfoItem>
-        <S.InfoItem>
-          <strong>humidade</strong>
-          <p>{humidity}%</p>
-        </S.InfoItem>
-      </S.InfoSection>
-    </S.Wrapper>
+          <S.InfoSection>
+            <S.InfoItem>
+              <strong>máx.</strong>
+              <p>{tempMaxFormatted}</p>
+            </S.InfoItem>
+            <S.InfoItem>
+              <strong>mín.</strong>
+              <p>{tempMinFormatted}</p>
+            </S.InfoItem>
+            <S.InfoItem>
+              <strong>vento</strong>
+              <p>12 km/h</p>
+            </S.InfoItem>
+            <S.InfoItem>
+              <strong>humidade</strong>
+              <p>{humidity}%</p>
+            </S.InfoItem>
+          </S.InfoSection>
+        </S.Wrapper>
+      )}
+    </>
   );
 };
 
@@ -89,6 +99,7 @@ MainWeatherCard.propTypes = {
   temp: PropTypes.number,
   tempMax: PropTypes.number,
   tempMin: PropTypes.number,
+  hasInfo: PropTypes.bool,
 };
 
 MainWeatherCard.defaultProps = {
@@ -101,6 +112,7 @@ MainWeatherCard.defaultProps = {
   temp: null,
   tempMax: null,
   tempMin: null,
+  hasInfo: false,
 };
 
 export default MainWeatherCard;

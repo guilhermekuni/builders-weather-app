@@ -35,9 +35,14 @@ export default createGlobalStyle`
     --textColor: #1a1d26;
     --lightTextColor: #edf2f4;
     --hightLightText: #011F51;
+
     --descriptionColor: #8d99ae;
     --cardLinearColor1: #2ec4b6;
     --cardLinearColor2: #7BE0D9;
     --cardLinearColor3: #cbf3f0;
+
+    --skeletonBackground: #d9e4e8;
+    --skeletonDarkBackground: #8d99ae;
+    --blurColor: #b7bfcc;
   }
 `;

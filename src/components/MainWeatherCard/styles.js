@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export const Wrapper = styled.div`
   display: flex;
@@ -22,6 +22,10 @@ export const MainSection = styled.section`
     var(--cardLinearColor2),
     var(--cardLinearColor3)
   );
+
+  ${({ isSkeleton }) => isSkeleton && css`
+    background: var(--skeletonBackground);
+  `}
 `;
 
 export const TitleSection = styled.section`
@@ -82,12 +86,9 @@ export const InfoSection = styled.section`
   border-bottom-left-radius: var(--borderRadius);
   border-bottom-right-radius: var(--borderRadius);
 
-  div.row {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    margin-top: 8px;
-  }
+  ${({ isSkeleton }) => isSkeleton && css`
+    background: var(--skeletonDarkBackground);
+  `}
 `;
 
 export const InfoItem = styled.div`
