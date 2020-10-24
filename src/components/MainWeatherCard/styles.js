@@ -68,6 +68,7 @@ export const WeatherDescription = styled.p`
 `;
 
 export const TemperatureFeelsLike = styled.p`
+  margin-top: 16px;
   font-size: var(--smallSize);
   color: var(--lightTextColor);
 `;

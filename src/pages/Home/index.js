@@ -22,12 +22,13 @@ const Home = () => {
       lon: longitude,
     });
 
-    const { weather, main } = data;
+    const { weather, main, dt } = data;
     const { icon, description } = weather[0];
 
     const weatherInfo = {
       description,
       icon,
+      unixDate: dt,
       feelsLike: main.feels_like,
       humidity: main.humidity,
       temp: main.temp,

@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { convertUnixToLongDate } from '../../utils/helper';
+
 import IconWeather from '../IconWeather';
 
 import * as S from './styles';
@@ -7,17 +9,20 @@ import * as S from './styles';
 const MainWeatherCard = ({
   description,
   icon,
+  unixDate,
   feelsLike,
   humidity,
   temp,
   tempMax,
   tempMin,
 }) => {
+  const formattedDate = unixDate && convertUnixToLongDate(unixDate);
+
   return (
     <S.Wrapper>
       <S.MainSection>
         <S.TitleSection>
-          <h1>Dia 23 de Outubro</h1>
+          <h1>{formattedDate}</h1>
           <h2>Araraquara, sexta-feira</h2>
         </S.TitleSection>
         <S.WeatherSection>
