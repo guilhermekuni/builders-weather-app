@@ -29,7 +29,7 @@ const MainWeatherCard = ({
   const formattedDate = unixDate && convertUnixToLongDate(unixDate);
   const weekDay = unixDate && converUnixToWeekDay(unixDate);
 
-  const temperatureFormatted = temp && formatBigTemperature(temp);
+  const temperatureFormatted = temp && formatBigTemperature(temp, 'C');
   const tempMaxFormatted = tempMax && formatTemperature(tempMax, 'C');
   const tempMinFormatted = tempMin && formatTemperature(tempMin, 'C');
   const tempFeelsLikeFormmated =

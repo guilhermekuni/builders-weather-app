@@ -11,7 +11,7 @@ export const Wrapper = styled.div`
 `;
 
 export const NextDaysSection = styled.section`
-  flex: 1;
+  flex: 2;
   display: flex;
   flex-direction: column;
   padding-left: 16px;
