@@ -44,5 +44,6 @@ export default createGlobalStyle`
     --skeletonBackground: #d9e4e8;
     --skeletonDarkBackground: #8d99ae;
     --blurColor: #b7bfcc;
+    --blurPlaceholderColor: #cfd5dd;
   }
 `;
