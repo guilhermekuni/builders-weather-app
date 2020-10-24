@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import { convertUnixToLongDate } from '../../utils/helper';
 
@@ -68,6 +69,28 @@ const MainWeatherCard = ({
       </S.InfoSection>
     </S.Wrapper>
   );
+};
+
+MainWeatherCard.propTypes = {
+  description: PropTypes.string,
+  icon: PropTypes.string,
+  unixDate: PropTypes.string,
+  feelsLike: PropTypes.string,
+  humidity: PropTypes.string,
+  temp: PropTypes.string,
+  tempMax: PropTypes.string,
+  tempMin: PropTypes.string,
+};
+
+MainWeatherCard.defaultProps = {
+  description: null,
+  icon: null,
+  unixDate: null,
+  feelsLike: null,
+  humidity: null,
+  temp: null,
+  tempMax: null,
+  tempMin: null,
 };
 
 export default MainWeatherCard;
