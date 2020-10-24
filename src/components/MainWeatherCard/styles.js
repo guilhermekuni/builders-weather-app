@@ -27,12 +27,12 @@ export const MainSection = styled.section`
 export const TitleSection = styled.section`
   h1 {
     font-size: var(--bigSize);
-    color: var(--lightTextColor);
+    color: var(--textColor);
   }
 
   h2 {
     font-size: var(--textSize);
-    color: var(--lightTextColor);
+    color: var(--textColor);
   }
 `;
 
@@ -53,24 +53,24 @@ export const Temperature = styled.div`
   p {
     font-size: var(--hugeSize);
     font-weight: bold;
-    color: var(--lightTextColor);
+    color: var(--textColor);
 
     span {
       font-size: var(--bigSize);
-      color: var(--lightTextColor);
+      color: var(--textColor);
     }
   }
 `;
 
 export const WeatherDescription = styled.p`
   font-size: var(--bigSize);
-  color: var(--lightTextColor);
+  color: var(--textColor);
 `;
 
 export const TemperatureFeelsLike = styled.p`
   margin-top: 16px;
   font-size: var(--smallSize);
-  color: var(--lightTextColor);
+  color: var(--textColor);
 `;
 
 export const InfoSection = styled.section`

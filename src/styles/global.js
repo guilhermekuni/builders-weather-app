@@ -36,8 +36,8 @@ export default createGlobalStyle`
     --lightTextColor: #edf2f4;
     --hightLightText: #011F51;
     --descriptionColor: #8d99ae;
-    --cardLinearColor1: #023FA1;
-    --cardLinearColor2: #2275FC;
-    --cardLinearColor3: #4A8EFC;
+    --cardLinearColor1: #2ec4b6;
+    --cardLinearColor2: #7BE0D9;
+    --cardLinearColor3: #cbf3f0;
   }
 `;
