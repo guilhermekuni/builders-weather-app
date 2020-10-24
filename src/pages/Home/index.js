@@ -1,7 +1,9 @@
-import React, { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import React, { useState, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 
 import { setUserCoordinates } from '../../store/modules/location/actions';
+
+import { getWeatherByCoords } from '../../services/api';
 
 import Header from '../../components/Header';
 import MainWeatherCard from '../../components/MainWeatherCard';
@@ -10,23 +12,53 @@ import SmallWeatherCard from '../../components/SmallWeatherCard';
 import * as S from './styles';
 
 const Home = () => {
+  const [weatherState, setWeatherState] = useState(null);
+
   const dispatch = useDispatch();
-  const teste = useSelector(state => state.location);
+
+  const getCurrentWeather = async ({ latitude, longitude }) => {
+    const { data } = await getWeatherByCoords({
+      lat: latitude,
+      lon: longitude,
+    });
+
+    const { weather, main } = data;
+    const { icon, description } = weather[0];
+
+    const weatherInfo = {
+      description,
+      icon,
+      feelsLike: main.feels_like,
+      humidity: main.humidity,
+      temp: main.temp,
+      tempMax: main.temp_max,
+      tempMin: main.temp_min,
+    };
+
+    setWeatherState(weatherInfo);
+  };
 
   useEffect(() => {
-    window.navigator.geolocation.getCurrentPosition(console.log, console.log);
-    dispatch(setUserCoordinates({ latitude: 123, longitude: 321 }));
-  }, []);
+    const getUserCoordinates = position => {
+      const { latitude, longitude } = position.coords;
 
-  useEffect(() => {
-    console.log({ teste });
-  }, [teste]);
+      dispatch(setUserCoordinates({ latitude, longitude }));
+      getCurrentWeather({ latitude, longitude });
+    };
+
+    window.navigator.geolocation.getCurrentPosition(
+      getUserCoordinates,
+      console.error,
+    );
+  }, [dispatch]);
+
+  useEffect(() => {}, []);
 
   return (
     <S.Container>
       <Header />
       <S.Wrapper>
-        <MainWeatherCard />
+        <MainWeatherCard {...weatherState} />
         <S.NextDaysSection>
           <SmallWeatherCard />
           <SmallWeatherCard />
