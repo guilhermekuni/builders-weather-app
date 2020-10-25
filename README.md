@@ -44,7 +44,7 @@ Esse projeto é uma interface Web que consome a API [OpenWeather](https://openwe
 1. Execute `yarn` para instalar as dependências do projeto.
 2. Execute `yarn test` para rodar todos os testes implementados.
 
-**Obs:** Os testes ainda não foam implementados :confused:
+**Obs:** Os testes ainda não foram implementados :confused:
 
 ### Execute a aplicação
 
