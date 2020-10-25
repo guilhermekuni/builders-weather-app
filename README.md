@@ -20,7 +20,7 @@
 
 Esse projeto é uma interface Web que consome a API [OpenWeather](https://openweathermap.org/api), tendo como objetivo mostrar a previsão do tempo atual e dos próximos dias.
 
-**Projeto publicado no netfly:** [https://builders-weather-app.netlify.app/](https://builders-weather-app.netlify.app/)
+**Projeto publicado no netfly:** <a href="https://builders-weather-app.netlify.app/" target="_blank">https://builders-weather-app.netlify.app/</a>
 
 ## Funcionalidades :bulb:
 
