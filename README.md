@@ -1,68 +1,54 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<h1 align="center">:umbrella: Weather App :sunny:</h1>
 
-## Available Scripts
+<div align="center">
+  <p align="center">
+    <img alt="Repository languages count" src="https://img.shields.io/github/languages/top/guilhermekuni/builders-weather-app?color=%#7BE0D9">
+    <img alt="Repository top language" src="https://img.shields.io/github/languages/count/guilhermekuni/builders-weather-app?color=%#7BE0D9">
+    <img alt="Repository size" src="https://img.shields.io/github/repo-size/guilhermekuni/builders-weather-app?color=%#7BE0D9">
+    <img alt="Repository last commit" src="https://img.shields.io/github/last-commit/guilhermekuni/builders-weather-app?color=%#7BE0D9" />
+  </p>
+  <h3>Weather App</h3>
+  <p align="center">
+    <a href="#sobre-information_source">Sobre</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+    <a href="#funcionalidades-bulb">Funcionalidades</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+    <a href="#tecnologias-computer">Tecnologias</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+    <a href="#iniciando-rocket">Iniciando</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  </p>
+</div>
 
-In the project directory, you can run:
+## Sobre :information_source:
 
-### `yarn start`
+Esse projeto é uma interface Web que consome a API [OpenWeather](https://openweathermap.org/api), tendo como objetivo mostrar a previsão do tempo atual e dos próximos dias.
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Funcionalidades :bulb:
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+- Recupera e exibe informações do tempo atual.
+- Recupe e exibe previsão do tempo dos próximos 5 dias.
+- Botão que atualiza informações do tempo atual.
+- Layout responsivo.
+- "Skeleton loading".
 
-### `yarn test`
+## Tecnologias :computer:
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- **ReactJS** - Biblioteca JavaScript para construção de interfaces de usuário.
+- **Redux** - Biblioteca JavaScript utilizada para controle de estado global.
+- **Axios** - Biblioteca JavaScript utilizada para realizar e controlar requests HTTP.
+- **Date fns** - Biblioteca JavaScript moderna para manipulação de data.
+- **Styled Components** - Biblioteca que permite usar estilos em nível de componente, aplicando a técnica CSS-in-JS.
+- **ESLint, Prettier, EditorConfig** - Bibliotecas utilizadas para linting e padronização de código.
 
-### `yarn build`
+## Iniciando :rocket:
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Execute os testes
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+1. Execute `yarn` para instalar as dependências do projeto.
+2. Execute `yarn test` para rodar todos os testes implementados.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+**Obs:** Os testes ainda não foam implementados :confused:
 
-### `yarn eject`
+### Execute a aplicação
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+1. Execute `yarn` para instalar as dependências do projeto.
+2. Execute `yarn start` para subir a aplicação.
+3. Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify

@@ -14,7 +14,7 @@ import IconWeather from '../IconWeather';
 import SmallWeatherCardSkeleton from './skeleton';
 import * as S from './styles';
 
-const SmallWeatherCard = ({ icon, unixDate, tempMax, tempMin, isSkeleton }) => {
+const SmallWeatherCard = ({ icon, unixDate, tempMax, tempMin }) => {
   const isLoading = useSelector(state => state.loading);
 
   const dateFormatted = convertUnixToShortDate(unixDate);
@@ -51,7 +51,6 @@ SmallWeatherCard.propTypes = {
   unixDate: PropTypes.number,
   tempMax: PropTypes.number,
   tempMin: PropTypes.number,
-  isSkeleton: PropTypes.bool,
 };
 
 SmallWeatherCard.defaultProps = {
@@ -59,7 +58,6 @@ SmallWeatherCard.defaultProps = {
   unixDate: null,
   tempMax: null,
   tempMin: null,
-  isSkeleton: false,
 };
 
 export default SmallWeatherCard;
