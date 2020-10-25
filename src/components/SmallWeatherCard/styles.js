@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export const Wrapper = styled.div`
   display: flex;
@@ -15,6 +15,10 @@ export const Wrapper = styled.div`
   & + div {
     margin-top: 40px;
   }
+
+  ${({ isSkeleton }) => isSkeleton && css`
+    padding: 0;
+  `}
 `;
 
 export const Day = styled.div`

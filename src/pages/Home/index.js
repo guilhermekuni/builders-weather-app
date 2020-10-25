@@ -14,6 +14,7 @@ import {
 import Header from '../../components/Header';
 import MainWeatherCard from '../../components/MainWeatherCard';
 import SmallWeatherCard from '../../components/SmallWeatherCard';
+import SmallWeatherCardSkeleton from '../../components/SmallWeatherCard/skeleton';
 
 import * as S from './styles';
 
@@ -24,6 +25,8 @@ const Home = () => {
 
   const [weatherState, setWeatherState] = useState(null);
   const [nextDaysForecast, setNextDaysForecast] = useState([]);
+
+  const firstLoadCompleted = !!weatherState && nextDaysForecast.length > 0;
 
   const getCurrentWeather = useCallback(
     async ({ latitude, longitude }) => {
@@ -87,15 +90,25 @@ const Home = () => {
       <S.Wrapper>
         <MainWeatherCard {...weatherState} hasInfo={!!weatherState} />
         <S.NextDaysSection>
-          {nextDaysForecast.map(({ dt, weather, temp }) => (
-            <SmallWeatherCard
-              key={dt}
-              icon={weather[0].icon}
-              unixDate={dt}
-              tempMax={temp.max}
-              tempMin={temp.min}
-            />
-          ))}
+          {
+            firstLoadCompleted ? nextDaysForecast.map(({ dt, weather, temp }) => (
+              <SmallWeatherCard
+                key={dt}
+                icon={weather[0].icon}
+                unixDate={dt}
+                tempMax={temp.max}
+                tempMin={temp.min}
+              />
+            )) : (
+                <>
+                  <SmallWeatherCardSkeleton />
+                  <SmallWeatherCardSkeleton />
+                  <SmallWeatherCardSkeleton />
+                  <SmallWeatherCardSkeleton />
+                  <SmallWeatherCardSkeleton />
+                </>
+              )
+          }
         </S.NextDaysSection>
       </S.Wrapper>
     </S.Container>
