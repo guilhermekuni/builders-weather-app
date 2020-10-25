@@ -19,7 +19,7 @@ export const Container = styled.div`
   `}
 
   ${media.lessThan(breakpoints.small)`
-    padding: 0;
+    padding: 10px 20px;
   `}
 `;
 
