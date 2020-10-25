@@ -22,8 +22,8 @@ Esse projeto é uma interface Web que consome a API [OpenWeather](https://openwe
 
 ## Funcionalidades :bulb:
 
-- Recupera e exibe informações do tempo atual.
-- Recupe e exibe previsão do tempo dos próximos 5 dias.
+- Recupera e exibe informações do tempo atual a partir da geolocalização do usuário.
+- Recupera e exibe previsão do tempo dos próximos 5 dias a partir da geolocalização do usuário.
 - Botão que atualiza informações do tempo atual.
 - Layout responsivo.
 - "Skeleton loading".
@@ -46,11 +46,11 @@ Esse projeto é uma interface Web que consome a API [OpenWeather](https://openwe
 1. Execute `yarn` para instalar as dependências do projeto.
 2. Execute `yarn test` para rodar todos os testes implementados.
 
-**Obs:** Os testes ainda não foam implementados :confused:
+**Obs:** Os testes ainda não foram implementados :confused:
 
 ### Execute a aplicação
 
 1. Execute `yarn` para instalar as dependências do projeto.
 2. Execute `yarn start` para subir a aplicação.
-3. Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+3. O projeto será executado no link [http://localhost:3000](http://localhost:3000).
 
