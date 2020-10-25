@@ -28,6 +28,8 @@ Esse projeto é uma interface Web que consome a API [OpenWeather](https://openwe
 - Layout responsivo.
 - "Skeleton loading".
 
+<img src="src/assets/preview.gif" alt="preview" />
+
 ## Tecnologias :computer:
 
 - **ReactJS** - Biblioteca JavaScript para construção de interfaces de usuário.
