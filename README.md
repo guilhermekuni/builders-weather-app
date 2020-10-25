@@ -22,8 +22,8 @@ Esse projeto é uma interface Web que consome a API [OpenWeather](https://openwe
 
 ## Funcionalidades :bulb:
 
-- Recupera e exibe informações do tempo atual.
-- Recupera e exibe previsão do tempo dos próximos 5 dias.
+- Recupera e exibe informações do tempo atual a partir da geolocalização do usuário.
+- Recupera e exibe previsão do tempo dos próximos 5 dias a partir da geolocalização do usuário.
 - Botão que atualiza informações do tempo atual.
 - Layout responsivo.
 - "Skeleton loading".
