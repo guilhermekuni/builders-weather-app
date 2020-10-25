@@ -1,5 +1,6 @@
 import styled, { css } from 'styled-components';
 import media from 'styled-media-query';
+import { Refresh } from '@styled-icons/material-sharp'
 
 import breakpoints from '../../styles/breakpoints';
 
@@ -34,6 +35,28 @@ export const MainSection = styled.section`
   ${({ isSkeleton }) => isSkeleton && css`
     background: var(--skeletonBackground);
   `}
+`;
+
+export const CardHeader = styled.header`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+`;
+
+export const RefreshButton = styled(Refresh)`
+  height: 75px;
+  width: 75px;
+  cursor: pointer;
+
+  &:hover {
+    transform: scale(1.125);
+    transition: transform 0.25s
+  }
+
+  &:active {
+    transform: scale(1.25);
+    transition: transform 0.15s
+  }
 `;
 
 export const TitleSection = styled.section`

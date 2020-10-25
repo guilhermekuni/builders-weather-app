@@ -16,9 +16,7 @@ const MainWeatherCardSekeleton = () => (
         <S.Temperature>
           <BlurInfo customHeight={100} customWidth={260} />
         </S.Temperature>
-        <S.TemperatureFeelsLike>
-          <BlurInfo customWidth={180} />
-        </S.TemperatureFeelsLike>
+        <BlurInfo customWidth={180} marginTop={16} />
         <BlurInfo customWidth={160} marginTop={16} marginBottom={32} />
       </S.WeatherSection>
     </S.MainSection>

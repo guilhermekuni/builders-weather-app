@@ -15,7 +15,7 @@ export default function location(state = INITIAL_STATE, action) {
       return { ...state, city };
     }
     default: {
-      return INITIAL_STATE;
+      return state;
     }
   }
 }

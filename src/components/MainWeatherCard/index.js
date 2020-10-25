@@ -29,8 +29,10 @@ const MainWeatherCard = ({
   tempMax,
   tempMin,
   hasInfo,
+  onRefresh,
 }) => {
   const isLoading = useSelector(state => state.loading);
+  const userLocation = useSelector(state => state.location);
 
   const formattedDate = unixDate && convertUnixToLongDate(unixDate);
   const weekDay = unixDate && converUnixToWeekDay(unixDate);
@@ -41,17 +43,25 @@ const MainWeatherCard = ({
   const tempFeelsLikeFormmated =
     feelsLike && `sensação de ${formatTemperature(feelsLike, 'C')}`;
 
+  const handleRefresh = () => {
+    const { latitude, longitude } = userLocation;
+    onRefresh({ latitude, longitude });
+  };
+
   return (
     <>
       {(isLoading || !hasInfo) ? <MainWeatherCardSekeleton /> : (
         <S.Wrapper>
           <S.MainSection>
-            <S.TitleSection>
-              <h1>{formattedDate}</h1>
-              <h2>
-                {city}, {weekDay}
-              </h2>
-            </S.TitleSection>
+            <S.CardHeader>
+              <S.TitleSection>
+                <h1>{formattedDate}</h1>
+                <h2>
+                  {city}, {weekDay}
+                </h2>
+              </S.TitleSection>
+              <S.RefreshButton onClick={handleRefresh} />
+            </S.CardHeader>
 
             <S.WeatherSection>
               <S.Temperature>
@@ -100,6 +110,7 @@ MainWeatherCard.propTypes = {
   tempMax: PropTypes.number,
   tempMin: PropTypes.number,
   hasInfo: PropTypes.bool,
+  onRefresh: PropTypes.func,
 };
 
 MainWeatherCard.defaultProps = {
@@ -113,6 +124,7 @@ MainWeatherCard.defaultProps = {
   tempMax: null,
   tempMin: null,
   hasInfo: false,
+  onRefresh: () => {},
 };
 
 export default MainWeatherCard;

@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@react-native-community/async-storage": "^1.12.1",
+    "@styled-icons/material-sharp": "^10.18.0",
     "axios": "^0.20.0",
     "cra-template": "1.0.3",
     "date-fns": "^2.16.1",

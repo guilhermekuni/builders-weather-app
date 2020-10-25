@@ -6,7 +6,7 @@ export default function loading(state = INITIAL_STATE, action) {
       return action.payload;
     }
     default: {
-      return INITIAL_STATE;
+      return state;
     }
   }
 }

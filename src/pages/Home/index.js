@@ -88,7 +88,11 @@ const Home = () => {
     <S.Container>
       <Header />
       <S.Wrapper>
-        <MainWeatherCard {...weatherState} hasInfo={!!weatherState} />
+        <MainWeatherCard
+          {...weatherState}
+          hasInfo={!!weatherState}
+          onRefresh={getCurrentWeather}
+        />
         <S.NextDaysSection>
           {
             firstLoadCompleted ? nextDaysForecast.map(({ dt, weather, temp }) => (
