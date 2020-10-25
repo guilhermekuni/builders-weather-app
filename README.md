@@ -50,5 +50,5 @@ Esse projeto é uma interface Web que consome a API [OpenWeather](https://openwe
 
 1. Execute `yarn` para instalar as dependências do projeto.
 2. Execute `yarn start` para subir a aplicação.
-3. Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+3. O projeto será executado no link [http://localhost:3000](http://localhost:3000).
 
