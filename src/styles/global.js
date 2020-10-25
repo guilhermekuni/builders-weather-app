@@ -22,11 +22,18 @@ export default createGlobalStyle`
   }
 
   body {
+    --minWidth: 360px;
+
     --borderRadius: 24px;
     --hugeSize: 120px;
     --bigSize: 40px;
     --textSize: 24px;
     --smallSize: 20px;
+
+    --mobileHugeSize: 60px;
+    --mobileBigSize: 20px;
+    --mobileTextSize: 12px;
+    --mobileSmallSize: 10px;
 
     --background: #edf2f4;
     --darkBackground: #292E3D;
