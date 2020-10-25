@@ -48,6 +48,11 @@ export const RefreshButton = styled(Refresh)`
   width: 75px;
   cursor: pointer;
 
+  ${media.lessThan(breakpoints.tiny)`
+    height: 38px;
+    width: 38px;
+  `}
+
   &:hover {
     transform: scale(1.125);
     transition: transform 0.25s
